@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>"Last Message Correction"</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <link href="../css/profanity.css" type="text/css" rel="stylesheet" />
+    <link rel="alternate" href="atom.xml" type="application/atom+xml" title="Atom Feed" />
+</head>
+
+<body id="blogpost">
+    <img class="overlay" src="../images/profanity_mouth-only.png" alt="Profanity Illustration" />
+    <header>
+        <h1>
+            <a href="index.html">
+            Profani<span class="kern-ty">ty</span>
+            </a>
+        </h1>
+        <h2>Developer Blog</h2>
+    </header>
+    <nav style="float: right;">
+        <span>
+            <a href="new-mailing-list.html">&#x219E;</a>
+        </span>
+        <span>
+            <a href="index.html">&#x219F;</a>
+        </span>
+        <span>
+            <a href="intro.html">&#x21A0;</a>
+        </span>
+    </nav>
+    <article id="manual" data-sblg-article="1">
+ <header>
+  <h3>"Last Message Correction"</h3>
+  <address><a href="../contributors/- jubalh.html">- jubalh</a></address>
+  <time datetime="2020-02-14">2020-02-14</time>
+ </header>
+<p>From 10th to 14th February 2020 we had <a href="https://hackweek.suse.com/19/projects">Hackweek 19</a> at SUSE.
+Part of that time I used to finally implement the long (since 2016!) <a href="https://github.com/profanity-im/profanity/issues/805">sought after</a> Last Message Correction feature, aka <a href="https://xmpp.org/extensions/xep-0308.html">XEP-0308</a>.</p>
+<p>See my <a href="https://hackweek.suse.com/projects/implement-xep-0308-last-message-correction-in-profanity">Hackweek project</a> and the corresponding <a href="https://github.com/profanity-im/profanity/pull/1267">pull request</a>.</p>
+<h2 id="usage">Usage</h2>
+<p>To enable incoming and outgoing corrections users need to enable it with <code>&#47;correction on</code>, see <code>&#47;help correction</code> for more details.</p>
+<p>Now we write a message to a friend <code>&#47;msg Martin Hey therr!</code>.</p>
+<p>Ouch! Already a typo.</p>
+<p>Let&#8217;s make this right: <code>&#47;corr&#60;TAB&#62; &#60;TAB&#62;</code> will autocomplete to <code>&#47;correct Hey therr!</code> which then can easily be fixed and re-send.</p>
+<p><img src="img/prof-lmc-wrong.png" alt="mistake"/>
+<img src="img/prof-lmc-corrected.png" alt="corrected"/></p>
+<h2 id="details">Details</h2>
+<p>The feature is only available in the development version of Profanity. In the master branch on git.
+So it&#8217;s not yet ready for release.</p>
+<p>Master branch corresponds always to our development and doesn&#8217;t guarantee anything. It&#8217;s where we develop test and experiment.
+We write these blogposts from time to time to inform our users and sponsors about what we are currently working on.</p>
+<p>The LMC feature is in there. But for the correct behaviour we need to rewrite the UI code. We could hack a &#8216;from&#8217; field in but we want to think more carefully how to implement it nicely.
+For this reason in the current state we don&#8217;t check the &#8216;from&#8217; attribute of the sender. Because at the time of drawing so far we don&#8217;t have this information.</p>
+<p>Since LMC is off by default noone is at harm. But people who choose to enable it need to be aware that in theory it would be possible for other users to send special messages where they could &#8220;correct&#8221; a message of someone else. We think the damage and likeliness from this is quite low. And once again, this is only in our development version of Profanity.</p>
+<h2 id="done">Done!</h2>
+<p>Today, on 2020-03-09, we were able to finish LMC properly. So if you use master from <a href="https://github.com/profanity-im/profanity/commit/a23d4e4af7c10f6762577940a12983903bf4428d">a23d4e4af7c10f6762577940a12983903bf4428d</a> you are good.</p>
+</article>
+    <nav style="float: right;">
+        <span>
+            <a href="new-mailing-list.html">&#x219E;</a>
+        </span>
+        <span>
+            <a href="index.html">&#x219F;</a>
+        </span>
+        <span>
+            <a href="intro.html"> &#x21A0;</a>
+        </span>
+    </nav>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+
+</html>

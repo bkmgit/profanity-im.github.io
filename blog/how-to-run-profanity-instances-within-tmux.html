@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>How to run profanity instances within tmux</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <link href="../css/profanity.css" type="text/css" rel="stylesheet" />
+    <link rel="alternate" href="atom.xml" type="application/atom+xml" title="Atom Feed" />
+</head>
+
+<body id="blogpost">
+    <img class="overlay" src="../images/profanity_mouth-only.png" alt="Profanity Illustration" />
+    <header>
+        <h1>
+            <a href="index.html">
+            Profani<span class="kern-ty">ty</span>
+            </a>
+        </h1>
+        <h2>Developer Blog</h2>
+    </header>
+    <nav style="float: right;">
+        <span>
+            <a href="intro.html">&#x219E;</a>
+        </span>
+        <span>
+            <a href="index.html">&#x219F;</a>
+        </span>
+        <span>
+            <a href="how-to-get-a-backtrace.html">&#x21A0;</a>
+        </span>
+    </nav>
+    <article id="manual" data-sblg-article="1">
+ <header>
+  <h3>How to run profanity instances within tmux</h3>
+  <address><a href="../contributors/debxwoody .html">debxwoody </a></address>
+  <time datetime="2020-03-03">2020-03-03</time>
+ </header>
+<p>If you have more than one XMPP account, you may run one profanity process per
+account. For example <code>profanity -a AccountName</code>.</p>
+<p>It&#8217;s possible to start a tmux session with one window for each
+profanity instance.</p>
+<p>Create a tmux configuration file, e.g. in <code>~&#47;.config&#47;tmux</code>.</p>
+<pre><code>mkdir ~&#47;.config&#47;tmux
+touch ~&#47;.config&#47;tmux&#47;profanity.conf
+</code></pre>
+<p>Within the configuration file, you create a tmux session named <code>Profanity</code>.
+Followed by one window per XMPP Account. Each window will run a profanity
+followed by <code>-a accountname</code>.</p>
+<pre><code>session-name Profanity
+neww -n "Private" profanity -a private 
+neww -n "Work" profanity -a work
+neww -n "Movim" profanity -a Movim
+</code></pre>
+<p>If you are using bash, you may like to define a alias in <code>~&#47;.bash_aliases</code>.</p>
+<pre><code>alias profanitymux=&#39;tmux new-session "tmux source-file ~&#47;.config&#47;tmux&#47;profanity.conf"&#39;
+</code></pre>
+<p>Done! You can start your profanity instances within a tmux session by running
+<code>profanitymux</code>. tmux will create one window for each profanity instance. You can
+switch the
+tmux windows with CTRL-B + 1 or CTRL-B + 2,&#8230;</p>
+</article>
+    <nav style="float: right;">
+        <span>
+            <a href="intro.html">&#x219E;</a>
+        </span>
+        <span>
+            <a href="index.html">&#x219F;</a>
+        </span>
+        <span>
+            <a href="how-to-get-a-backtrace.html"> &#x21A0;</a>
+        </span>
+    </nav>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+
+</html>

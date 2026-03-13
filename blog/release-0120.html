@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profanity 0.12.0</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <link href="../css/profanity.css" type="text/css" rel="stylesheet" />
+    <link rel="alternate" href="atom.xml" type="application/atom+xml" title="Atom Feed" />
+</head>
+
+<body id="blogpost">
+    <img class="overlay" src="../images/profanity_mouth-only.png" alt="Profanity Illustration" />
+    <header>
+        <h1>
+            <a href="index.html">
+            Profani<span class="kern-ty">ty</span>
+            </a>
+        </h1>
+        <h2>Developer Blog</h2>
+    </header>
+    <nav style="float: right;">
+        <span>
+            <a href="release-0131.html">&#x219E;</a>
+        </span>
+        <span>
+            <a href="index.html">&#x219F;</a>
+        </span>
+        <span>
+            <a href="release-0110.html">&#x21A0;</a>
+        </span>
+    </nav>
+    <article id="manual" data-sblg-article="1">
+ <header>
+  <h3>Profanity 0.12.0</h3>
+  <address><a href="../contributors/jubalh.html">jubalh</a></address>
+  <time datetime="2022-03-30">2022-03-30</time>
+ </header>
+<p>Eight months and 207 commits after 0.11.0 we are happy to release 0.12.0.</p>
+<p>16 people contributed code to it: @sjaeckel, @MarcoPolo-PasTonMolo, @paulfertser,
+@DebXWoody, @trofi, @nandesu-utils, @carlocab, @binex-dsk, @nlfx, @JurajMlich,
+@wstrm, @arya-pratap-singh, @a02c1175-5220-4e75-b7a1-18e20548305f,
+@mdosch, @jugendhacker and @jubalh.</p>
+<p>That certainly is one of our records!</p>
+<p>Thanks to everybody who was involved, be it testing, writing documentation, updating the website or whatever you did!
+I also would like to express my gratitude to my sponsors <a href="https://github.com/mdosch">mdosch</a>, <a href="https://github.com/wstrm">wstrm</a>, <a href="https://github.com/jamesponddotco">jamesponddotco</a> and <a href="https://github.com/LeSpocky">LeSpocky</a>.</p>
+<h2 id="libmesode">libmesode</h2>
+<p>libmesode has finally been deprecated.
+We now depend on libstrophe &#62;= 0.11.0.
+All the functionality from libmesode has been brought to libstrophe.</p>
+<h2 id="plugins">Plugins</h2>
+<p>We tried to make it easier to use (Python) plugins.</p>
+<p>In the process the <code>sourcepath</code> setting got removed see <a href="https://github.com/profanity-im/profanity/commit/3b3a6b7a756e0f162d212249750524b7ce045cea">here</a> for more details.</p>
+<p>And we finally support a global installation path for plugins.
+So now we have to ways to install a plugins. Either by using the full path:</p>
+<pre><code>&#47;plugins install ~&#47;src&#47;profanity-plugins&#47;my.py
+</code></pre>
+<p>Or by using:</p>
+<pre><code>`&#47;plugins install my.py`
+</code></pre>
+<p>The latter will check two location. Which are the local one <code>~&#47;.local&#47;share&#47;profanity&#47;plugins</code> and the global <code>&#47;usr&#47;local&#47;share&#47;profanity&#47;plugins&#47;</code>.</p>
+<p>So distributions could actually create a <code>profanity-plugins</code> package that install to the global path. Users could then install&#47;active it by running the above mentioned install command.</p>
+<p>For more details see <a href="https://github.com/profanity-im/profanity/pull/1598">here</a>.</p>
+<h2 id="in-band-registration">In-band registration</h2>
+<p>We now support <a href="https://xmpp.org/extensions/xep-0077.html">XEP-0077: In-Band Registration</a>.
+Learn to use it via <code>&#47;help register</code>.</p>
+<h2 id="ui">UI</h2>
+<p>We got a new color theme, check it out: <code>&#47;theme load snicket</code>.</p>
+<p>You can now set UTF-8 signs not only for your OTR&#47;OMEMO&#47;PGP indicators but also for your: roster header char, roster contact char, roster resource char, roster private char, occupants char, occupants header char.</p>
+<h2 id="user-mood">User Mood</h2>
+<p>We now support <a href="https://xmpp.org/extensions/xep-0107.html">XEP-0107: User Mood</a>.
+Try it out: <code>&#47;mood set happy</code>.</p>
+<h2 id="editor">Editor</h2>
+<p>Additionally to <code>&#47;editor</code> we now have: <code>&#47;subject editor</code> and <code>&#47;correct-editor</code>.</p>
+<p>You can also always press alt-c to open the external editor and the result will be used in the inputwindow.
+This works with every command.</p>
+<h2 id="quoting">Quoting</h2>
+<p>If you want to quote someone just type <code>&#62;</code> and then use TAB completion to cycle through the last messages. Type your reply and hit enter!</p>
+<h2 id="contributing">Contributing</h2>
+<p>We reworked our contributions guide. New developers should now have it a lot easier.
+See the <a href="https://github.com/profanity-im/profanity/pull/1640">PR</a> and <a href="https://github.com/profanity-im/profanity/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+<h2 id="details">Details</h2>
+<p>We also got several important fixes in.
+For all the details please see the <a href="https://github.com/profanity-im/profanity/releases/tag/0.12.0">changelog</a>.</p>
+</article>
+    <nav style="float: right;">
+        <span>
+            <a href="release-0131.html">&#x219E;</a>
+        </span>
+        <span>
+            <a href="index.html">&#x219F;</a>
+        </span>
+        <span>
+            <a href="release-0110.html"> &#x21A0;</a>
+        </span>
+    </nav>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+
+</html>

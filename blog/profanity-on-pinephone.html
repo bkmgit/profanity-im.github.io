@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profanity on Pinephone</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <link href="../css/profanity.css" type="text/css" rel="stylesheet" />
+    <link rel="alternate" href="atom.xml" type="application/atom+xml" title="Atom Feed" />
+</head>
+
+<body id="blogpost">
+    <img class="overlay" src="../images/profanity_mouth-only.png" alt="Profanity Illustration" />
+    <header>
+        <h1>
+            <a href="index.html">
+            Profani<span class="kern-ty">ty</span>
+            </a>
+        </h1>
+        <h2>Developer Blog</h2>
+    </header>
+    <nav style="float: right;">
+        <span>
+            <a href="release-0100.html">&#x219E;</a>
+        </span>
+        <span>
+            <a href="index.html">&#x219F;</a>
+        </span>
+        <span>
+            <a href="openpgp-for-xmpp-ox.html">&#x21A0;</a>
+        </span>
+    </nav>
+    <article id="manual" data-sblg-article="1">
+ <header>
+  <h3>Profanity on Pinephone</h3>
+  <address><a href="../contributors/karcio.html">karcio</a></address>
+  <time datetime="2022-02-02">2022-02-02</time>
+ </header>
+<p>Hi all, </p>
+<p>So far, in my pinephone I used mainly GUI applications, because I was using a touch screen. Terminal applications are not user-friendly when it comes to one-handed operation.</p>
+<p>I tested different distributions on my pinephone (mobian, manjaro, archarm), but usually most based on Phosh. In my opinion it is currently the best mobile graphics environment and stable as well. </p>
+<p>In Phosh I tested few xmpp clients:
+- the default application installed with Phosh is chatty, a combine that supports sms &#47; mms &#47; xmpp (OMEMO)
+- Dino from <a href="https://github.com/dino/dino/tree/feature/handy">repo: handy</a>
+- Gajim </p>
+<p>I know there are KDE plasma applications as well, but during my testing, plasma was unusable and I even gave up installing it. My pinephone comes with preinstalled Plasma factory image but I could not even upgrade to latest Plasma version, So I gave up KDE :(</p>
+<p>In my opinion, <code>Dino</code> works the best on PinePhone with Phosh.</p>
+<p>Recently I ordered keyboard dedicated to pinephone(pro), so I decided that I will also test terminal xmpp client. </p>
+<p>I also decided to check profanity as I use it on my home server and it works perfectly, but I was curious how it would handle on pinephone. I installed it and everything worked well. Just one thing: pinephone terminal is small to read more than 2 lines. I wanted to scroll window Up to be able see previous content. Well, first I changed the resolution in Phosh from 200% to 150%, and I could see more than two lines.</p>
+<p>But, I still had a trouble scrolling the main window in profanity</p>
+<p><a href="https://kraut.zone/w/6jG9F41Z7nNUZLFdHE43cN">video: ppkb keyboard issue</a></p>
+<p>I looked at <a href="http://www.profanity.im/keybindings.html">profanity keybindings</a> and in the <code>User Interface Navigation</code> section I found that I should use <code>PageUp&#47;PageDown</code> keys, but looking at <a href="https://wiki.pine64.org/wiki/PinePhone_(Pro)_Keyboard#Keyboard_layout">Pinephone wiki</a> this keyboard does not have <code>PageUp&#47;PageDown</code> keys.</p>
+<p>I had to do key mapping in profanity. Using following url <a href="http://www.profanity.im/keybindings.html">profanity keybindings</a> quickly I found solution.</p>
+<p>Basicaly, I created a file <code>~&#47;.config&#47;profanity&#47;inputrc</code> with content</p>
+<pre><code>$ if profanity
+"\ C-p": prof_win_prev
+"\ C-n": prof_win_next
+"\ C-j": prof_win_pageup
+"\ C-k": prof_win_pagedown
+"\ C-h": prof_subwin_pageup
+"\ C-l": prof_subwin_pagedown
+"\ C-y": prof_win_clear
+$ endif
+</code></pre>
+<p>After starting profanity, I was able to scroll window with content using following shortcuts
+- <code>C-j</code> - scroll up
+- <code>C-k</code> - to scroll down </p>
+<p><a href="https://kraut.zone/w/fA2LeeRRmonkHVB5d3NMYe">video: ppkb keyboard scroll</a></p>
+<p>Here you can see some photos. </p>
+<p><img src="img/profanity-on-pinephone-screen2.png" alt="Profanity screeen 1"/>
+<img src="img/profanity-on-pinephone-screen2.png" alt="Profanity screeen 2"/></p>
+</article>
+    <nav style="float: right;">
+        <span>
+            <a href="release-0100.html">&#x219E;</a>
+        </span>
+        <span>
+            <a href="index.html">&#x219F;</a>
+        </span>
+        <span>
+            <a href="openpgp-for-xmpp-ox.html"> &#x21A0;</a>
+        </span>
+    </nav>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+
+</html>

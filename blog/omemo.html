@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>OMEMO</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <link href="../css/profanity.css" type="text/css" rel="stylesheet" />
+    <link rel="alternate" href="atom.xml" type="application/atom+xml" title="Atom Feed" />
+</head>
+
+<body id="blogpost">
+    <img class="overlay" src="../images/profanity_mouth-only.png" alt="Profanity Illustration" />
+    <header>
+        <h1>
+            <a href="index.html">
+            Profani<span class="kern-ty">ty</span>
+            </a>
+        </h1>
+        <h2>Developer Blog</h2>
+    </header>
+    <nav style="float: right;">
+        <span>
+            <a href="openpgp-for-xmpp-ox.html">&#x219E;</a>
+        </span>
+        <span>
+            <a href="index.html">&#x219F;</a>
+        </span>
+        <span>
+            <a href="new-mailing-list.html">&#x21A0;</a>
+        </span>
+    </nav>
+    <article id="manual" data-sblg-article="1">
+ <header>
+  <h3>OMEMO</h3>
+  <address><a href="../contributors/debxwoody .html">debxwoody </a></address>
+  <time datetime="2020-11-27">2020-11-27</time>
+ </header>
+<p>OMEMO with profanity.</p>
+<h3 id="hello-omemo">Hello OMEMO!</h3>
+<p>OMEMO needs crytographic materials. You can generated this crytographic
+materials via <code>&#47;omemo gen</code>.  If you have more than one device, make sure you are
+trusting your other devices.  Check your fingerprints via <code>&#47;omemo fingerprint</code>. 
+You may wont trust all your devices:</p>
+<pre><code>&#47;omemo trust &#60;Your XMPP-ID&#62; &#60;Your fingerpint&#62;
+</code></pre>
+<p>Check the fingerprint of your buddy. List the fingerprints of your buddy via </p>
+<pre><code>&#47;omemo fingerprint &#60;XMPP-ID of your buddy&#62;
+</code></pre>
+<p>Check the fingerprints with you buddy over a secure medium (phone or singed OpenPGP message)
+and trust the buddy&#8217;s fingerprint via the command:</p>
+<pre><code>&#47;omemo trust &#60;Buddy&#39;s XMPP-ID&#62; &#60;Buddy&#39;s fingerpint&#62;
+</code></pre>
+<p>You can start a OMEMO Session via the omemo-start command <code>&#47;omemo start &#60;buddy&#39;s
+XMPP-ID&#62;</code>.</p>
+<h3 id="debugging">Debugging</h3>
+<p>Get the device list of your Buddy. Change the <code>to</code> and the <code>from</code> tag of the
+line shown below.</p>
+<pre><code>&#60;iq type=&#39;get&#39; from=&#39;your@domain.tld&#39; to=&#39;buddy@domain.tld&#39; id=&#39;getOmemoDeviceList&#39;&#62;&#60;pubsub xmlns=&#39;http:&#47;&#47;jabber.org&#47;protocol&#47;pubsub&#39;&#62;&#60;items node=&#39;eu.siacs.conversations.axolotl.devicelist&#39;&#47;&#62;&#60;&#47;pubsub&#62;&#60;&#47;iq&#62;
+</code></pre>
+<p>Use the <code>&#47;xmlconsole</code> to open the XMP Console Window and sent those line to your
+server.</p>
+<p>The Server should return a result of the <code>iq</code> with id <code>getOmemoDeviceList</code>.
+There should be a <code>item</code>-Tag with the id <code>current</code> followed by a list of device
+id.</p>
+<pre><code>&#60;items node="eu.siacs.conversations.axolotl.devicelist"&#62;
+    &#60;item id="current"&#62;
+    &#60;list xmlns="eu.siacs.conversations.axolotl"&#62;
+    &#60;device id="174235744"&#47;&#62;
+    &#60;device id="71071234"&#47;&#62;
+    &#60;device id="22318128"&#47;&#62;
+    &#60;&#47;list&#62;
+    &#60;&#47;item&#62;
+&#60;&#47;items&#62;
+</code></pre>
+<p>The known devices and fingerprints are stored in <code>~&#47;.local&#47;share&#47;profanity&#47;omemo&#47;&#60;account&#62;&#47;known_devices.txt</code>.
+The trust information are stored in <code>~&#47;.local&#47;share&#47;profanity&#47;omemo&#47;&#60;account&#62;&#47;trust.txt</code>.</p>
+<h3 id="qr-code">QR Code</h3>
+<p>If you need a QR Code of you Fingerprint, check xmppc.
+xmppc is a XMPP Command Line Tool which can be used to <a href="https://codeberg.org/Anoxinon_e.V./xmppc/wiki/Usage#user-content-omemo">generate a QR
+Code</a>. </p>
+</article>
+    <nav style="float: right;">
+        <span>
+            <a href="openpgp-for-xmpp-ox.html">&#x219E;</a>
+        </span>
+        <span>
+            <a href="index.html">&#x219F;</a>
+        </span>
+        <span>
+            <a href="new-mailing-list.html"> &#x21A0;</a>
+        </span>
+    </nav>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+
+</html>
