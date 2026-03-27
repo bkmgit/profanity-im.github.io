@@ -1,7 +1,8 @@
-# Profanity, a console based XMPP client - User Guide
-## User Guide
+title: Profanity, a console based XMPP client - User Guide
+subtitle: User Guide
 
-<section>
+${section_start}
+
 ### Userguides
 
 - [For latest development version](guide/latest/userguide.html)
@@ -18,4 +19,5 @@
 - [For version 0.9.X](guide/090/userguide.html)
 - [For version 0.8.X](guide/080/userguide.html)
 - [For version 0.7.X](guide/070/userguide.html)
-</section>
+
+${section_end}

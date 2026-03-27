@@ -1,7 +1,8 @@
-# Profanity, a console based XMPP client - User Guide
-## User Guide
+title: Profanity, a console based XMPP client - User Guide
+subtitle: User Guide
 
-<section>
+${section_start}
+
 ### Donating
 
 Yes, the rumors are true. Developers also have to eat. They also have limited time.
@@ -15,4 +16,5 @@ There are several ways to do so:
 1. Become a sponsor on [GitHub Sponsors](https://github.com/jublah)
 2. Write an email to jubalh@iodoru.org to ask for bank details
 3. Send Bitcoin to: bc1qx265eat7hfasqkqmk9qf38delydnrnuvzhzy0x
-</section>
+
+${section_end}

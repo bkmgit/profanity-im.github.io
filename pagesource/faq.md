@@ -1,7 +1,8 @@
-# Profanity, a console based XMPP client - FAQ
-## Frequently Asked Questions
+title: Profanity, a console based XMPP client - FAQ
+subtitle: Frequently Asked Questions
 
-<section>
+${section_start}
+
 [](top)
 ### Contents
 
@@ -26,10 +27,11 @@
 - [How to connect to XMPP server using Tor](tor)
 - [How to connect to an onion XMPP server](onion)
 - [How to run the latest version on old distributions?](distrobox)
-- [How do I automatically open chat windows with contacts?[aut0open)
+- [How do I automatically open chat windows with contacts?](autoopen)
          
-</section>
-<section>
+${section_end}
+
+${section_start}
    
 [](multiacc)
 #### How do I connect with multiple accounts?
@@ -40,8 +42,11 @@ terminal multiplexer like screen or tmux. An example setup can be seen in this
 [blogpost](https://profanity-im.github.io/blog/post/how-to-run-profanity-instances-within-tmux/).
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](omemo)
 #### OMEMO doesn't work for me
 
@@ -56,8 +61,11 @@ details.
         
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](platform)
 #### Will Profanity run on &lt;some platform&gt;?
 
@@ -65,8 +73,11 @@ Profanity should run on any POSIX system, see the [install guide](install.html)
 for specifics.
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](gtalk)
 #### Will Profanity work with Google Talk?
 
@@ -77,8 +88,11 @@ XMPP support was
 
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](facebook)
 #### Will Profanity work with Facebook Chat?
 
@@ -86,8 +100,11 @@ Facebook have recently announced that they will no longer support the open
 XMPP chat protocol, so Profanity will no longer work with Facebook Chat.
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](slack)
 #### Will Profanity work with Slack?
 
@@ -96,16 +113,22 @@ See the
 [Slack page on gateways](https://slack.zendesk.com/hc/en-us/articles/201727913-Connecting-to-Slack-over-IRC-and-XMPP)
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](msn)
 #### Will Profanity work with MSN/Yahoo/AIM/IRC etc?
 
 No, Profanity is purely an XMPP chat client.
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](keychain)
 #### Can Profanity use my keychain/keyring to retrieve my password?
 
@@ -137,8 +160,11 @@ You can also use Profanity together with `pass`, see this
 [guide](https://hispagatos.org/post/xmpp_profanity_and_pass)
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](multiaccount)
 #### Can I connect to more than one account at a time?
 
@@ -146,16 +172,22 @@ No, the recommended way is to use multiple terminal windows, or a terminal
 multiplexer like GNU Screen or tmux.
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](persistent)
 #### Why are my settings not persistent?
 
 Because you did not use `/save`.
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](profrc)
 #### Where is the profrc file format described?
 
@@ -165,8 +197,11 @@ Just use the commands to manipulate the settings.
 And don't forget to `/save` before exiting.
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](termf1)
 #### Why does the F1 key open terminal help rather than going back to the main console window?
 
@@ -175,8 +210,11 @@ keys to change windows, or if you prefer to use the F keys, you'll need to
 change the terminal setting to open help with another key.
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](utf8encoding)
 #### Why can I not type anything in the input bar?
 
@@ -188,8 +226,11 @@ export LANG=en_US.UTF-8
 ```
 
 ######[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](mucpresence)
 #### How can I hide join/leave messages in MUCs?
 
@@ -199,8 +240,11 @@ You can deactivate those messages with the following command:
 ```
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](bugs)
 #### I've found a bug/have a feature request who do I tell?
 
@@ -211,8 +255,11 @@ Alternatively you are welcome to post on the
 [mailing list](https://lists.posteo.de/listinfo/profanity).
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](contrib)
 #### I'd like to contribute, what should I do?
 
@@ -223,8 +270,11 @@ Any contributions/ideas are very welcome. Also see the
 file on GitHub.
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](donate)
 #### I'd like to donate to Profanity
 
@@ -244,8 +294,11 @@ So in case you want to see a certain feature implemented or bug fixed you can
 set a bounty there and the person doing the work gets the reward.
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](clients)
 #### Are there more clients like this?
 
@@ -256,8 +309,11 @@ Yes, there are several commandline clients:
 [more clients](https://xmpp.org/software/clients.html).
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](tor)
 #### How to connect to XMPP server using Tor
 
@@ -265,8 +321,11 @@ To connect to the XMPP server by the Tor network, you must launch Profanity
 with a tool called "[proxychains-ng](https://github.com/rofl0r/proxychains-ng)".
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](onion)
 #### How to connect to an onion XMPP server
 
@@ -278,8 +337,11 @@ inside the Tor network. You can specify the onion address with the
 ```
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](distrobox)
 #### How to run the latest version on old distributions?
 
@@ -288,8 +350,11 @@ Profanity in a container via distrobox. See our
 [blogpost](https://profanity-im.github.io/blog/post/distrobox/).
 
 #####[back to top](top)
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](autoopen)
 #### How do I automatically open chat windows with contacts?
 
@@ -302,4 +367,5 @@ And configure your account to automatically launch that script
 `/account set &lt;account&gt; startscript myautoscript`.
 
 #####[back to top](top)
-</section>
+
+${section_end}

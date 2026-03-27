@@ -1,7 +1,8 @@
-# Profanity, a console based XMPP client - User Guide
-## Plugins
+title: Profanity, a console based XMPP client - User Guide
+subtitle: Plugins
 
-<section>
+${section_start}
+
 ### Contents
 
 - [Overview](overview)
@@ -10,11 +11,14 @@
 
      - [Python](python-plugins),
      - [C](c-plugins)
+
 - [Themes and Settings](themes-settings)
 - [Contributing Plugins](contributing-plugins)
 
-</section>
-<section>
+${section_end}
+
+${section_start}
+
 [](overview)
 #### Overview
 
@@ -59,8 +63,10 @@ command can be used to find out more information:
 /help say
 ```
 
-</section>
-<section>
+${section_end}
+
+${section_start}
+
 [](featured-plugins)
 #### Featured Plugins
 
@@ -86,16 +92,20 @@ for a generic version to run any system command on new messages.
 | [`syscmd.py`](https://github.com/profanity-im/profanity-plugins/blob/0.5.1/stable/syscmd.py) | Display the result shell commands in a new window. Send results of shell commands to recipients or chat rooms. |
 | [`wikipedia-prof.py`](https://github.com/profanity-im/profanity-plugins/blob/0.5.1/stable/wikipedia-prof.py) | Search wikipedia and show search results, pages, links etc in a new window. |
 
-</section>
-<section>   
+${section_end}
+
+${section_start}
+
 [](developing-plugins)
 #### Developing Plugins
 
 Profanity provides an API for plugins to access various functionality. Plugins
 may also implement 'hooks' that Profanity will call on specific events.
 
-</section>
-<section>
+${section_end}
+
+${section_start}
+
 [](python-plugins)
 #### Python
 
@@ -114,8 +124,10 @@ Previous versions:
 
 [0.5.0](plugins/0.5.0/python/html/index.html)
 
-</section>
-<section>
+${section_end}
+
+${section_start}
+
 [](c-plugins)
 #### C
 
@@ -134,8 +146,10 @@ Previous versions:
 
 [0.5.0](plugins/0.5.0/c/html/index.html)
 
-</section>
-<section>   
+${section_end}
+
+${section_start}
+
 [](themes-settings)
 #### Themes and Settings
 
@@ -169,8 +183,10 @@ API functions are available to read and write to the settings and theme files.
 Plugins should contain documentation on the available settings and colours,
 most plugins have a command to manipulate settings.
 
-</section>
-<section>   
+${section_end}
+
+${section_start}
+
 [](contributing-plugins)
 #### Contributing Plugins
                 
@@ -180,4 +196,5 @@ project.
                 
 If the current API doesn't have what you need, raise an issue at the
 [Profanity](https://github.com/profanity-im/profanity) repository.
-</section>
+
+${section_end}

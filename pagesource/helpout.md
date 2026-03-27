@@ -1,6 +1,8 @@
-# Profanity, a console based XMPP client - Helping Out
-## Helping Out
-<section>
+title: Profanity, a console based XMPP client - Helping Out
+subtitle: Helping Out
+
+${section_start}
+
 ### Contents
 
 - [Use Profanity](use-profanity)
@@ -8,8 +10,11 @@
 - [Contribute code](contribute-code)
 - [Donate](donate)
 
-</section>
-<section>
+
+${section_end}
+
+${section_start}
+
 [](use-profanity)
 ### Use Profanity
             
@@ -22,8 +27,10 @@ profanity (pun intended).
 See [Reporting issues](issues.html) for information on where and how to report
 issues, and how to supply logs/debug information.
 
-</section>
-<section>
+${section_end}
+
+${section_start}
+
 [](website-help)
 ### Help with the website
             
@@ -35,8 +42,10 @@ so feel free to send pull requests there.
 We're always interested to hear about profanity being used in different environments,
 and if you have any screenshots, we'd be happy to post them at the website.
 
-</section>
-<section>            
+${section_end}
+
+${section_start}
+
 [](contribute-code)
 ### Contribute code
             
@@ -76,8 +85,10 @@ Or to implement a feature that they want to have. So think about what you want
 and need. You can also join our MUC to get help about getting started with
 development on Profanity.
 
-</section>
-<section>
+${section_end}
+
+${section_start}
+
 [](donate)
 ### Donate
 
@@ -87,4 +98,5 @@ time.
 And yet some of them decide to use their free time to develop free software.
 
 If you want to say "Thank You", please consider [donating](donate.html).
-</section>
+
+${section_end}

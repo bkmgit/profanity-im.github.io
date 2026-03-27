@@ -1,6 +1,8 @@
-# Profanity, a console based XMPP client - Reporting issues
-## Reporting Issues
-<section>
+title: Profanity, a console based XMPP client - Reporting issues
+subtitle: Reporting Issues
+
+${section_start}
+
 ### Contents
 
 - [Where to report issues](where)
@@ -12,8 +14,11 @@
   - [Rebuild in debug mode](configuredebug)
   - [Viewing the backtrace](viewingbacktrace)
 
-</section>
-<section>            
+
+${section_end}
+
+${section_start}
+
 [](where)
 #### Where to report issues
 
@@ -33,9 +38,10 @@ finally any information about the build configuration and enabled features.
 
 If you cant supply the above information, a simple description will do.
 
-</section>
+${section_end}
 
-<section>   
+${section_start}
+
 [](proflogs)
 #### Attaching logs
 
@@ -63,8 +69,10 @@ reversed to get your username and password, e.g.:
 12/12/2014 14:22:01: conn: DBG: SENT: &lt;auth mechanism="PLAIN" xmlns="urn:ietf:params:xml:ns:xmpp-sasl"&gt;<b>AG9saXZlci5tdWVoc2FtAE5oYTEyMDhnIw==</b>&lt;/auth&gt;
 ```
 
-</section>
-<section>
+${section_end}
+
+${section_start}
+
 [](config)
 #### Attaching configuration files
          
@@ -93,8 +101,10 @@ Remember to remove or obfuscate any usernames/passwords from the configuration
 before sending, for example, account configuration will include your password
 if you have set one using the [/account](reference.html#account) command.
 
-</section>
-<section>
+${section_end}
+
+${section_start}
+
 [](backtrace)
 #### Getting a backtrace
 
@@ -102,8 +112,10 @@ Segfaults and crashes usually result in a coredump which can be useful in
 debugging the problem. If you have the time, the following instructions should
 help when attaching a backtrace from a crash.
 
-</section>
-<section>
+${section_end}
+
+${section_start}
+
 [](ulimit)
 #### Enabling coredumps
 
@@ -122,8 +134,9 @@ ulimit -c 102400
 Add the command to your `~/.bashrc` or equivalent to enable coredumps for all
 terminal sessions.
 
-</section>
-<section>    
+${section_end}
+
+${section_start}
 
 [](configuredebug)
 #### Rebuild in debug mode
@@ -151,8 +164,9 @@ Note, if you installed from Homebrew on OSX it is recommended to clone and
 build from github (checking out the relevant release tag) using the above
 steps, unless you are happy with editing and reinstalling brew formula.
 
-</section>
-<section>
+${section_end}
+
+${section_start}
 
 [](viewingbacktrace)
 ### Viewing the backtrace
@@ -174,4 +188,4 @@ On OSX, the coredump can be found somewhere in the system console (usually in
 Applications->Utilities->Console in the finder). It should be named with
 "profanity" and the date and time of the crash.
 
-</section>
+${section_end}

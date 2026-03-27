@@ -1,7 +1,8 @@
-# Profanity, a console based XMPP client - Supported XEPs
-## Supported XEPs
+title: Profanity, a console based XMPP client - Supported XEPs
+subtitle: Supported XEPs
 
-<section>
+${section_start}
+
 All the XEPs listed here are supported by Profanity. For some XEPs we are not
 sure which version of the XEP is implemented in Profanity in which case we left
 the **Supported Version** field blank.
@@ -40,4 +41,5 @@ the **Supported Version** field blank.
 | [XEP-0384: OMEMO Encryption](https://xmpp.org/extensions/xep-0384.html) | 0.3.0 | Since 0.7.0. |
 | [XEP-0392: Consistent Color Generation](https://xmpp.org/extensions/xep-0392.html) | 0.7.0 | Since 0.8.0. |
 | [XEP-0454: OMEMO Media sharing](https://xmpp.org/extensions/xep-0454.html) | 0.1.0 | Since 0.10.0. |
-</section>
+
+${section_end}

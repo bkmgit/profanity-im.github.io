@@ -1,13 +1,15 @@
-# Profanity, a console based XMPP client - Account Configuration
-## Account Configuration
+title: Profanity, a console based XMPP client - Account Configuration
+subtitle: Account Configuration
 
-<section>
+${section_start}
+
 ### Contents
 
 - [Configuring Accounts](#configuring-accounts)
 
-</section>
-<section>
+${section_end}
+
+${section_start}
 
 ### Configuring Accounts
 
@@ -46,4 +48,5 @@ presence.login=away
 muc.service=rooms.mycompany.org
 muc.nick=smithy
 ```
-</section>
+
+${section_end}

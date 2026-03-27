@@ -1,11 +1,12 @@
 SBLG = sblg
+LOWDOWN = lowdown
 PREFIX = $(PWD)/site
 BLOG_SRC_TOP_DIR = blogsource/content
 BLOG_POST_SRC_DIR = $(BLOG_SRC_TOP_DIR)/post
 BLOG_POST_OUT_TOP_DIR = blog
 BLOG_POST_OUT_DIR = $(BLOG_POST_OUT_TOP_DIR)/post
 BLOG_POSTS = $(wildcard $(BLOG_POST_SRC_DIR)/*.md)
-BLOG_POSTS_OUT = $(subst $(BLOG_POST_SRC_DIR), $(BLOG_POST_OUT_DIR),  $(BLOG_POSTS:.md=.html))
+BLOG_POSTS_OUT = $(subst $(BLOG_POST_SRC_DIR), $(BLOG_POST_OUT_DIR), $(BLOG_POSTS:.md=.html))
 CONTRIBUTORS_SRC_DIR = blogsource/content/contributors
 CONTRIBUTORS_OUT_DIR = contributors
 CONTRIBUTORS = $(wildcard $(CONTRIBUTORS_SRC_DIR)/*.md)
@@ -41,12 +42,19 @@ install:  index.html $(PAGES) themegallery.html $(BLOG_POSTS_OUT) $(BLOG_POST_OU
 	cp -p -r tarballs $(PREFIX)
 
 
-index.html: landing-template.xml index.xml profanity_version.txt
+index.html: landing-template.xml index.md profanity_version.txt
 	sed -e 's/$${version}/$(VERSION)/g' \
 	    -e 's/$${tar_xz_sha256}/$(TAR_XZ_SHA256)/g' \
-	    -e 's/$${zip_sha256}/$(ZIP_SHA256)/g' index.xml > index.gen.xml
-	$(SBLG) -o $@ -t landing-template.xml -c index.gen.xml
-	rm -f index.gen.xml
+	    -e 's/$${zip_sha256}/$(ZIP_SHA256)/g' index.md > index.tmpmd
+	echo "<article data-sblg-article=\"1\" data-sblg-set-title=\"Profanity, a console based XMPP client - Home\" data-sblg-set-subtitle=\"A console based XMPP client\">"  >$(@:.html=.xml)
+	$(LOWDOWN) --html-no-head-ids  --html-no-skiphtml --html-no-escapehtml index.tmpmd >>$(@:.html=.xml)
+	echo "</article>" >>$(@:.html=.xml)
+	sed -e 's|<p>$${div_content}</p>|<div id="content">|g' $(@:.html=.xml) > $(@:.html=.tmpxml)
+	sed -e 's|<p>$${div_features}</p>|<div id="features">|g' $(@:.html=.tmpxml) > $(@:.html=.xml)
+	sed -e 's|<p>$${div_screenshots}</p>|<div id="screenshots">|g' $(@:.html=.xml) > $(@:.html=.tmpxml)
+	sed -e 's|<p>$${div_end}</p>|</div>|g' $(@:.html=.tmpxml) > $(@:.html=.xml)
+	$(SBLG) -o $@ -t landing-template.xml -c index.xml
+	rm -f index.xml index.tmpxml index.tmpmd
 
 $(PAGES): manual-template.xml $(PAGES_XML)
 	$(SBLG) -o $@ -t manual-template.xml -c $(@:.html=.xml)
@@ -54,14 +62,12 @@ $(PAGES): manual-template.xml $(PAGES_XML)
 
 $(PAGES_XML): $(PAGES_SRC)
 	cp $(addprefix $(PAGES_SRC_DIR)/,$(@:.xml=.md)) .
-	echo "<article id=\"manual\" data-sblg-article=\"1\">"  >$@
-	echo " <header>" >>$@
-	echo "  <h1>`lowdown -X title $(subst .xml,.md,$@)`</h1>" >>$@
-	echo "  <h2>`lowdown -X subtitle $(subst .xml,.md,$@)`</h2>" >>$@
-	echo " </header>" >>$@
-	lowdown --html-no-skiphtml --html-no-escapehtml $(subst .xml,.md,$@) >>$@
+	echo "<article id=\"manual\" data-sblg-article=\"1\" data-sblg-set-title=\"`$(LOWDOWN) -X title $(@:.xml=.md)`\" data-sblg-set-subtitle=\"`$(LOWDOWN) -X subtitle $(@:.xml=.md)`\">"  >$@
+	$(LOWDOWN) --html-no-skiphtml --html-no-escapehtml $(subst .xml,.md,$@) >>$@
 	echo "</article>" >>$@
-	rm -f $(@:.xml=.md)
+	sed -e 's|<p>$${section_start}</p>|<section>|g' $@ > $(@:.xml=.tmpxml)
+	sed -e 's|<p>$${section_end}</p>|</section>|g' $(@:.xml=.tmpxml) > $@
+	rm -f $(@:.xml=.md) $(@:.xml=.tmpxml)
 
 themegallery.html: gallery-template.xml
 	$(SBLG) -o $@ -t gallery-template.xml -c themegallery.xml
