@@ -10,8 +10,9 @@ CONTRIBUTORS_SRC_DIR = blogsource/content/contributors
 CONTRIBUTORS_OUT_DIR = contributors
 CONTRIBUTORS = $(wildcard $(CONTRIBUTORS_SRC_DIR)/*.md)
 PAGES_SRC_DIR = pagesource
-PAGES_SRC = $(wildcard $(PAGES_SRC_DIR)/*.xml)
-PAGES = $(subst $(PAGES_SRC_DIR)/,,$(PAGES_SRC:.xml=.html))
+PAGES_SRC = $(wildcard $(PAGES_SRC_DIR)/*.md)
+PAGES_XML = $(subst $(PAGES_SRC_DIR)/,,$(PAGES_SRC:.md=.xml))
+PAGES = $(PAGES_XML:.xml=.html)
 REDIRECTS_DIR = pageredirects
 REDIRECTS_SRC = $(wildcard $(REDIRECTS_DIR)/*.html)
 REDIRECTS = $(subst $(REDIRECTS_DIR)/,,$(REDIRECTS_SRC))
@@ -47,10 +48,20 @@ index.html: landing-template.xml index.xml profanity_version.txt
 	$(SBLG) -o $@ -t landing-template.xml -c index.gen.xml
 	rm -f index.gen.xml
 
-$(PAGES): manual-template.xml
-	cp --preserve=mode,ownership,timestamps $(addprefix $(PAGES_SRC_DIR)/,$(@:.html=.xml)) .
+$(PAGES): manual-template.xml $(PAGES_XML)
 	$(SBLG) -o $@ -t manual-template.xml -c $(@:.html=.xml)
-	rm -f $(PAGES:.html=.xml)
+	rm -f $(@:.html=.xml)
+
+$(PAGES_XML): $(PAGES_SRC)
+	cp $(addprefix $(PAGES_SRC_DIR)/,$(@:.xml=.md)) .
+	echo "<article id=\"manual\" data-sblg-article=\"1\">"  >$@
+	echo " <header>" >>$@
+	echo "  <h1>`lowdown -X title $(subst .xml,.md,$@)`</h1>" >>$@
+	echo "  <h2>`lowdown -X subtitle $(subst .xml,.md,$@)`</h2>" >>$@
+	echo " </header>" >>$@
+	lowdown --html-no-skiphtml --html-no-escapehtml $(subst .xml,.md,$@) >>$@
+	echo "</article>" >>$@
+	rm -f $(@:.xml=.md)
 
 themegallery.html: gallery-template.xml
 	$(SBLG) -o $@ -t gallery-template.xml -c themegallery.xml
